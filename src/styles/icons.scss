@@ -1,0 +1,22 @@
+.icon {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 10px;
+
+  &:after {
+    width: fluid-to-laptop(24, 20);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    content: "";
+    flex-shrink: 0;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &-yellow-arrow {
+    &:after {
+      background-image: url('../assets/icons/yellow-arrow.svg');
+    }
+  }
+}

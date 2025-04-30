@@ -1,0 +1,105 @@
+.header {
+  &__promo {
+    background-color: var(--color-dark-08);
+    border-bottom: var(--border);
+
+    &-inner {
+      @include flex-center;
+
+      padding-block: fluid-to-laptop(21.5, 12);
+
+      @include mobile {
+        display: flex;
+        align-items: flex-end;
+        min-height: 74px;
+        padding-block: 15px;
+      }
+    }
+  }
+
+  &__body {
+    padding-block: fluid-to-laptop(24, 20);
+
+    &-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      column-gap: 10px;
+    }
+  }
+
+  &__overlay {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+    color: inherit;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    transition-duration: var(--transition-duration-longer);
+    transition-behavior: allow-discrete;
+
+    @include tablet-above {
+      display: contents;
+    }
+
+    @mixin starting-styles {
+      opacity: 0;
+      translate: 50%;
+    }
+
+    @include tablet {
+      &[open] {
+        display: flex;
+        background-color: var(--color-dark-08);
+
+        @starting-style {
+          @include starting-styles;
+        }
+      }
+
+      &:not([open]) {
+        @include starting-styles;
+      }
+    }
+  }
+
+  &__navigation {
+    ul {
+      display: flex;
+      flex-direction: row;
+      column-gap: fluid-to-laptop(20, 6);
+
+      @include tablet {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    &-link {
+      padding: fluid-to-laptop(14, 10)  fluid-to-laptop(24, 18);
+      border-radius: var(--border-radius-m);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--transition-duration-longer);
+
+      @include hover {
+        color: var(--color-white);
+        background-color: var(--color-dark-08);
+        border-color: var(--color-dark-20);
+      }
+
+      &.is-active {
+        cursor: initial;
+        font-weight: 500;
+        pointer-events: none;
+        color: var(--color-white);
+        background-color: var(--color-dark-08);
+        border-color: var(--color-dark-20);
+      }
+    }
+  }
+}

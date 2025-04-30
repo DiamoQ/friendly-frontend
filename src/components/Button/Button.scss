@@ -1,0 +1,42 @@
+.button {
+  @include flex-center;
+
+  column-gap: fluid-to-laptop(10, 4);
+  padding: fluid-to-laptop(18, 14) fluid-to-laptop(28, 20);
+  min-width: fluid-to-laptop(137, 103);
+  width: fit-content;
+  color: var(--color-grey-60);
+  white-space: nowrap;
+  background-color: var(--color-dark-08);
+  border-radius: var(--border-radius-l);
+  border: var(--border);
+  transition-duration: var(--transition-duration);
+
+  @include laptop {
+    border-radius: var(--border-radius-s);
+  }
+
+  @include hover {
+    color: var(--color-yellow-70);
+    background-color: var(--color-dark-10);
+    color: var(--color-white);
+  }
+
+  &--accent {
+    padding: fluid-to-laptop(14, 10) fluid-to-laptop(20, 14);
+    color: var(--color-dark-08);
+    font-weight: 500;
+    background-color: var(--color-yellow-55);
+    border-radius: var(--border-radius-m);
+    border: none;
+
+    @include laptop {
+      border-radius: var(--border-radius-xs);
+    }
+
+    @include hover {
+      color: var(--color-dark-20);
+      background-color: var(--color-yellow-70);
+    }
+  }
+}
